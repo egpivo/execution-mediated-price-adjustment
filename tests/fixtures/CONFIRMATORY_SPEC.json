@@ -1,0 +1,53 @@
+{
+  "spec_frozen_at_utc": "2026-08-29T15:50:00Z",
+  "spec_frozen_before_outcome_inspection_of_confirmatory_sample": true,
+  "primary_model": {
+    "form": "C_n = b0 + b1*x_n + b2*(x_n-1)_+ + eps_n",
+    "breakpoint_fixed_at": 1.0,
+    "no_search": true,
+    "estimation_subset": "S_n == 1 (focal-swap observations only)",
+    "outcome": "C_n = |Xstar_n - P_pre_n| - |Xstar_n - P_post_n| (signed)",
+    "regressor": "x_n = |Xstar_n - P_pre_n| / gamma_fee",
+    "markets": ["ETH5", "BASE5"],
+    "base1_role": "secondary_only",
+    "hypothesis_test": "two-sided H0: b2 = 0",
+    "preregistered_sign_b2": "positive",
+    "preregistered_sign_basis": "discovery-sample intensive-margin change points at x=1.00-1.05 (ETH5) and 0.90-1.00 (BASE5) with accelerating post-kink slope; discovery slope-difference CI [4.33,4.51] bp/unit x on the pre-consolidation aggregate object",
+    "sign_locked": true
+  },
+  "inference": {
+    "method": "calendar_day_cluster_bootstrap",
+    "reps": 2000,
+    "seed": 20260829,
+    "interval": "percentile_2.5_97.5",
+    "reused_from_discovery": true,
+    "may_be_changed_only_if": "a technical defect is found and fixed before any confirmatory outcome is estimated"
+  },
+  "calendar_stability": {
+    "partition": "utc_month",
+    "fallback_partition": "utc_quarter",
+    "fallback_trigger": "fewer than 5 clean UTC days in a monthly partition",
+    "selection_rule": "calendar boundaries only, not outcome-selected"
+  },
+  "secondary_objects": [
+    "P(S=1|x) swap incidence, no threshold",
+    "E[C|x] aggregate + exact decomposition identity, fail-closed residual gate 1e-10",
+    "free change-point search, grid 0.30:0.05:2.00, descriptive only",
+    "BASE1 fixed-c=1 model, labeled NOT_IDENTIFIED if free-CP bootstrap edge share > 0.10"
+  ],
+  "bins": ["[0,.25)", "[.25,.5)", "[.5,.75)", "[.75,1)", "[1,1.25)", "[1.25,1.5)", "[1.5,2)", "[2,3)", "[3,5)", "[5,inf)"],
+  "discovery_window_excluded": {
+    "start": "2026-07-06",
+    "end": "2026-08-05",
+    "exclusion_rule": "DISCOVERY_ONLY = true; these calendar days are never part of the confirmatory estimation sample"
+  },
+  "hard_constraints": [
+    "no manuscript edits",
+    "no window/threshold/bin/grid/reference-rule choice based on outcomes",
+    "no third reference venue",
+    "no loosening the 3-second freshness gate",
+    "no receive-time substitution for exchange time",
+    "no paid data source unless public archives documented insufficient",
+    "never overwrite discovery artifacts"
+  ]
+}

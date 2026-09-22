@@ -1,0 +1,24 @@
+# Frozen calendar date windows. These are facts about which data the paper
+# uses, not tuning parameters -- do not extend without a corresponding
+# change to the manuscript's pre-registration.
+
+[windows.discovery]
+start = "2026-07-06"
+end_exclusive = "2026-08-06"
+description = "Original HF discovery window (jfqa_hf_response_full / jfqa_service_primitives)."
+
+[windows.confirmation]
+start = "2026-06-09"
+end_exclusive = "2026-07-05"
+days = 27
+description = """
+Frozen confirmatory window (jfqa_service_confirmatory_long). Non-overlapping
+with, and chronologically PRIOR to, the discovery window -- excludes it by
+construction. Breakpoint fixed at x=1, no change-point search, per
+CONFIRMATORY_SPEC.json. This is the window that produces table_t5_confirmation.
+"""
+
+[windows.tier_a_calibration]
+start = "2026-06-09"
+end_exclusive = "2026-08-06"
+description = "Full 58-day native Tier-A reference-calibration window (union of discovery + confirmation)."

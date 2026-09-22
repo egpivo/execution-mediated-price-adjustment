@@ -1,0 +1,2 @@
+# Keep frozen fixtures byte-identical (upstream CRLF artifacts).
+tests/fixtures/** -text

@@ -1,0 +1,40 @@
+# Strict-prior composite external reference construction.
+# Source: work/jfqa_service_confirmatory_long/code/build_xstar_hf.py and
+# work/jfqa_full_history_panel/code/build_tier_a_hf_reference.py (identical
+# construction, independently confirmed to agree).
+#
+# log X*_n = 0.5 * (log mid_Bybit,n + log mid_OKX,n)   -- no estimated weights
+#
+# Both venues are required to have a quote strictly prior to the block
+# timestamp and no older than freshness_seconds; if either venue fails the
+# freshness gate the observation is dropped (no one-venue fallback).
+
+[bybit]
+pair = "ETHUSDC"
+
+[okx]
+pair = "ETH-USDC"
+
+freshness_seconds = 3
+require_both      = true
+strict_prior      = true
+aggregation       = "equal_weight_log_midpoint"
+
+# Support-bin schedule used throughout (estimand.py::build_x_support_flags).
+support_bins = [0.0, 0.5, 0.75, 1.0, 1.25, 1.5, 2.0, 3.0, 5.0]
+
+# Two independent support-cap robustness ladders reuse the same cap values
+# but are NOT the same code path — see README "Two support-cap ladders".
+support_caps = [1.5, 2.0, 3.0, 5.0]  # plus "full" (no cap)
+
+[bootstrap]
+# Hinge regression + RMT/support-ladder bootstrap (run_confirmation.py,
+# run_support_ladder.py::support_core reused from run_long_confirmatory_analysis.py).
+reps = 2000
+seed = 20260829
+
+[bootstrap.rmt]
+# jfqa_response_map_transport/code/rmt_core.py uses a DIFFERENT seed.
+# Do not merge these two seeds -- they are for different estimators.
+reps = 2000
+seed = 20260907

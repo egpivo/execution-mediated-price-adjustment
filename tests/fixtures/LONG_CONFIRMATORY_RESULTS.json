@@ -1,0 +1,83 @@
+{
+  "ETH5": {
+    "market": "ETH5",
+    "n_obs": 89577,
+    "n_calendar_days": 27,
+    "beta0": -0.0001428010987696315,
+    "beta1": 0.00036080483471706136,
+    "beta2": -0.00036525501659576685,
+    "beta2_sign": "negative",
+    "beta2_ci95": [
+      -0.0004145858551626908,
+      -0.00030255900349848133
+    ],
+    "beta2_ci95_excludes_zero": true,
+    "beta0_ci95": [
+      -0.00016278886504167891,
+      -0.00011914880334437047
+    ],
+    "beta1_ci95": [
+      0.00029862780818674375,
+      0.00041037861065330665
+    ],
+    "r2": 0.10964491408738697,
+    "bootstrap_reps": 2000,
+    "bootstrap_seed": 20260829,
+    "preregistered_sign_b2": "positive",
+    "preregistered_sign_confirmed": false
+  },
+  "BASE5": {
+    "market": "BASE5",
+    "n_obs": 309109,
+    "n_calendar_days": 27,
+    "beta0": -4.737971022300415e-05,
+    "beta1": 0.00014440905942628032,
+    "beta2": -0.00014779150730692762,
+    "beta2_sign": "negative",
+    "beta2_ci95": [
+      -0.0001775241037689816,
+      -0.00011067551044400299
+    ],
+    "beta2_ci95_excludes_zero": true,
+    "beta0_ci95": [
+      -5.735771204634833e-05,
+      -3.621736641713781e-05
+    ],
+    "beta1_ci95": [
+      0.00011056399679849458,
+      0.00017424549038830164
+    ],
+    "r2": 0.09333180534988683,
+    "bootstrap_reps": 2000,
+    "bootstrap_seed": 20260829,
+    "preregistered_sign_b2": "positive",
+    "preregistered_sign_confirmed": false
+  },
+  "BASE1": {
+    "market": "BASE1",
+    "n_obs": 490893,
+    "n_calendar_days": 27,
+    "beta0": -7.969863302191525e-05,
+    "beta1": 0.00016736908853811952,
+    "beta2": -0.00016796072518495206,
+    "beta2_sign": "negative",
+    "beta2_ci95": [
+      -0.0001895560732050092,
+      -0.00014072751667211294
+    ],
+    "beta2_ci95_excludes_zero": true,
+    "beta0_ci95": [
+      -8.901925544318574e-05,
+      -6.964872350631596e-05
+    ],
+    "beta1_ci95": [
+      0.0001404740846644887,
+      0.00018935668957943138
+    ],
+    "r2": 0.08584965347600881,
+    "bootstrap_reps": 2000,
+    "bootstrap_seed": 20260829,
+    "preregistered_sign_b2": "positive",
+    "preregistered_sign_confirmed": false
+  }
+}

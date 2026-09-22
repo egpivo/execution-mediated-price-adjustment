@@ -1,0 +1,25 @@
+{
+  "purpose": "Freeze a pointer to the discovery-sample artifacts so the confirmatory build never overwrites them and so DISCOVERY_ONLY exclusion has an unambiguous referent.",
+  "discovery_window": {"start": "2026-07-06", "end": "2026-08-05"},
+  "discovery_docs": [
+    "work/jfqa_service_primitives/FINAL_SERVICE_PRIMITIVE_GATE.md",
+    "work/jfqa_service_consolidation/FINAL_SERVICE_PRIMITIVE_GATE.md",
+    "work/jfqa_service_consolidation/CROSS_MARKET_HARMONIZED_TABLE.csv",
+    "work/jfqa_service_consolidation/SEMANTIC_ESTIMAND_RESULTS.json"
+  ],
+  "discovery_panels": {
+    "eth5": {
+      "path": "/Users/joseph/amm-lab/.local/flow_clamm/high_activity_limits/research/reset/theory_T0/tail_paper/activity_frontier_F0/amm_clob_limit_model/empirical_upgrade/research_pilot_v1/outputs/eth5_analysis_panel.parquet",
+      "sha256": "7effcb109efa003e14b65e116ac69383608c555ee7e96d4eb0baa372190de09d"
+    },
+    "base5": {
+      "path": "/Users/joseph/amm-lab/.local/flow_clamm/high_activity_limits/research/reset/theory_T0/tail_paper/activity_frontier_F0/amm_clob_limit_model/empirical_upgrade/research_pilot_v1/outputs/base5_analysis_panel.parquet",
+      "sha256": "8b58eaa6cc7115b018dc491f2430f8a76163e0c0a857a71cdde6356be2eb3f49"
+    },
+    "base1": {
+      "path": "/Users/joseph/amm-lab/.local/flow_clamm/high_activity_limits/research/reset/theory_T0/tail_paper/activity_frontier_F0/amm_clob_limit_model/base_weakness_diagnosis/multipool_fragmentation_test/outputs/base1_analysis_panel.parquet",
+      "sha256": "40fbd2c34832cd4e5249091a3c6ba7d595bd4768a8d5291a468a8e8521ea491f"
+    }
+  },
+  "rule": "DISCOVERY_ONLY = true: the exact calendar days above (2026-07-06 through 2026-08-05, inclusive) are permanently excluded from the confirmatory estimation sample. Discovery artifacts are read-only reference points for this new sprint and are never regenerated or overwritten by it."
+}
