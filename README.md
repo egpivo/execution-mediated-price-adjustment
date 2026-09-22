@@ -49,8 +49,11 @@ Optional path overrides: `RESEARCH_CORE_DATA_ROOT`,
 ```bash
 uv sync --extra dev
 # or: pip install -e ".[dev]"
+
+cp .env.example .env   # then fill RPC / cache paths as needed
 ```
 
+`.env` is gitignored. Mode A needs none of these variables.
 ## Usage
 
 ### Mode A — tests (no external data)
